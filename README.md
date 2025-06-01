@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Graphite - Reputation-Based Gig Economy Platform
+
+A decentralized platform where freelancers are matched with gigs based on their Trust Score and specific skill tags. Higher scores unlock premium projects, encouraging quality and reliability.
+
+## Features
+
+- **Trust Score System**: Freelancers build reputation through successful project completions
+- **Skill-Based Matching**: Projects are matched based on specific skill tags and expertise
+- **Premium Projects**: Higher trust scores unlock access to premium opportunities
+- **Decentralized Platform**: Built on blockchain technology for transparency and security
+- **Quality Assurance**: Built-in mechanisms to ensure project quality and reliability
 
 ## Getting Started
 
@@ -16,7 +26,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Blockchain Integration
+- Smart Contracts
+
+## Contributing
+
+We welcome contributions! Please read our contributing guidelines before submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
