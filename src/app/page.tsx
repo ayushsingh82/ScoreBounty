@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,14 +15,21 @@ export default function Home() {
           <p className="text-xl text-emerald-100/90 mb-10 max-w-2xl mx-auto">
             Where Trust Meets Opportunity in the Decentralized Gig Economy
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-green-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition shadow-md hover:shadow-green-400/30">
-              Get Started
-            </button>
+        
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex justify-center gap-6 mb-16 ">
+          <Link href="/create-gig" className="group">
             <button className="border border-green-500 text-green-400 px-8 py-3 rounded-lg font-medium hover:bg-green-900/60 backdrop-blur-md transition">
-              Learn More
+              <span>Create Gig</span>
             </button>
-          </div>
+          </Link>
+          <Link href="/register-skill" className="group">
+            <button className="border border-green-500 text-green-400 px-8 py-3 rounded-lg font-medium hover:bg-green-900/60 backdrop-blur-md transition">
+              <span>Register Skill</span>
+            </button>
+          </Link>
         </div>
 
         {/* Features Section */}
