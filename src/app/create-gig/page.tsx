@@ -129,7 +129,7 @@ export default function CreateGig() {
             {/* Bounty Prize */}
             <div>
               <label htmlFor="bountyPrize" className="block text-green-400 mb-2 font-medium">
-                Bounty Prize (ETH)
+                Bounty Prize (@G)
               </label>
               <div className="relative">
                 <input
@@ -144,7 +144,7 @@ export default function CreateGig() {
                   required
                 />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-green-400">
-                  ETH
+                  @G
                 </span>
               </div>
             </div>

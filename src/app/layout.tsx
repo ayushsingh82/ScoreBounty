@@ -1,14 +1,35 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+  getDefaultConfig,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { WagmiProvider } from 'wagmi';
+import {
+  baseSepolia,
+  mainnet,
+  sepolia,
+} from 'wagmi/chains';
+import {
+  QueryClientProvider,
+  QueryClient,
+} from "@tanstack/react-query";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Graphite - Reputation-Based Gig Economy",
-  description: "A decentralized platform where freelancers are matched with gigs based on their Trust Score",
-};
+const config = getDefaultConfig({
+  appName: 'Graphite',
+  projectId: 'YOUR_PROJECT_ID',
+  chains: [baseSepolia, mainnet, sepolia],
+  ssr: true,
+});
+
+const queryClient = new QueryClient();
 
 export default function RootLayout({
   children,
@@ -18,6 +39,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
         <nav className="bg-black border-b border-green-800/50">
           <div className="container mx-auto px-6">
             <div className="flex items-center justify-between h-16">
@@ -40,6 +64,7 @@ export default function RootLayout({
                 >
                   Your Data
                 </Link>
+                <ConnectButton />
               </div>
             </div>
           </div>
@@ -48,6 +73,10 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
+
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
 
         <footer className="bg-black border-t border-green-800/50 mt-auto">
           <div className="container mx-auto px-6 py-12">

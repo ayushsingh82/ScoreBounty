@@ -96,7 +96,7 @@ export default function GigsPage() {
         </div>
 
         {/* Gig Listings */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredGigs.map(gig => (
             <div
               key={gig.id}
@@ -104,8 +104,8 @@ export default function GigsPage() {
             >
               <div className="flex justify-between items-start mb-4">
                 <h2 className="text-xl font-semibold text-green-400">{gig.title}</h2>
-                <div className="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-sm">
-                  {gig.bountyPrize} ETH
+                <div className="bg-green-600/20 text-green-400 px-4 py-2 border border-green-500/50 text-sm font-medium">
+                  {gig.bountyPrize} @G
                 </div>
               </div>
               <p className="text-green-100/80 mb-4 flex-grow">{gig.description}</p>
