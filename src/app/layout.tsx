@@ -10,10 +10,10 @@ import {
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
+import { Chain } from 'wagmi/chains';
 import {
   baseSepolia,
-  mainnet,
-  sepolia,
+  hardhat,
 } from 'wagmi/chains';
 import {
   QueryClientProvider,
@@ -22,10 +22,28 @@ import {
 
 const inter = Inter({ subsets: ["latin"] });
 
+const graphitetestnet = {
+  id: 54170,
+  name: "Graphite Testnet",
+  nativeCurrency: {
+    name: "Graphite",
+    symbol: "@G",
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: { http: ['https://anon-entrypoint-test-1.atgraphite.com'] },
+    public: { http: ['https://anon-entrypoint-test-1.atgraphite.com'] }
+  },
+  blockExplorers: {
+    default: { name: 'Graphite Explorer', url: 'https://explorer.atgraphite.com' }
+  },
+  testnet: true
+} as const satisfies Chain;
+
 const config = getDefaultConfig({
   appName: 'Graphite',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [baseSepolia, mainnet, sepolia],
+  chains: [graphitetestnet , hardhat],
   ssr: true,
 });
 
