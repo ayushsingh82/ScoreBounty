@@ -1,14 +1,30 @@
-# Graphite - Reputation-Based Gig Economy Platform
+# ScoreBounty - Reputation-Based Bounty Platform
 
-A decentralized platform where freelancers are matched with gigs based on their Trust Score and specific skill tags. Higher scores unlock premium projects, encouraging quality and reliability.
+A decentralized platform where bounty hunters can find and claim bounties based on their reputation score. The platform ensures quality through a reputation system and KYC verification through the Graphite Network.
 
 ## Features
 
-- **Trust Score System**: Freelancers build reputation through successful project completions
-- **Skill-Based Matching**: Projects are matched based on specific skill tags and expertise
-- **Premium Projects**: Higher trust scores unlock access to premium opportunities
-- **Decentralized Platform**: Built on blockchain technology for transparency and security
-- **Quality Assurance**: Built-in mechanisms to ensure project quality and reliability
+- **Reputation Score System**: Bounty hunters build reputation through successful bounty completions
+- **Minimum Reputation Requirements**: Each bounty has a minimum reputation score requirement
+- **Graphite Network KYC**: Seamless KYC verification through Graphite Network to ensure trust and security
+- **Bounty Registration**: Easy process for posting new bounties with specific requirements
+- **Smart Contract Integration**: Built on blockchain for transparency and automated payouts
+- **Quality Assurance**: Built-in mechanisms to ensure bounty completion quality
+
+## Core Components
+
+### For Bounty Posters
+- Register new bounties with detailed requirements
+- Set minimum reputation score requirements
+- Define bounty prize in @G tokens
+- Monitor bounty progress and completion
+
+### For Bounty Hunters
+- View available bounties with reputation requirements
+- Check personal reputation score
+- Apply for bounties if reputation score meets requirements
+- Complete KYC verification through Graphite Network to claim bounties
+- Build reputation through successful completions
 
 ## Getting Started
 
@@ -31,8 +47,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Next.js
 - TypeScript
 - Tailwind CSS
-- Blockchain Integration
-- Smart Contracts
+- Solidity Smart Contracts
+- Wagmi for Web3 Integration
+- Graphite Network KYC Integration
+
+## Smart Contracts
+
+The platform uses several smart contracts:
+- `RegisterGig.sol`: For bounty registration and management
+- `KYCContract.sol`: For KYC verification and reputation management through Graphite Network
 
 ## Contributing
 
@@ -42,19 +65,11 @@ We welcome contributions! Please read our contributing guidelines before submitt
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Solidity Documentation](https://docs.soliditylang.org/)
+- [Wagmi Documentation](https://wagmi.sh/)
+- [Graphite Network Documentation](https://docs.graphite.network)
