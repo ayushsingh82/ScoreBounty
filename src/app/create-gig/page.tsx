@@ -8,7 +8,8 @@ export default function CreateGig() {
     title: '',
     description: '',
     selectedTypes: [] as string[],
-    bountyPrize: ''
+    bountyPrize: '',
+    minReputation: 0.5
   })
   const [newType, setNewType] = useState('')
 
@@ -146,6 +147,30 @@ export default function CreateGig() {
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-green-400">
                   @G
                 </span>
+              </div>
+            </div>
+
+            {/* Minimum Reputation Score */}
+            <div>
+              <label htmlFor="minReputation" className="block text-green-400 mb-2 font-medium">
+                Minimum Reputation Score: {formData.minReputation.toFixed(2)}
+              </label>
+              <div className="space-y-2">
+                <input
+                  type="range"
+                  id="minReputation"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={formData.minReputation}
+                  onChange={(e) => setFormData(prev => ({ ...prev, minReputation: parseFloat(e.target.value) }))}
+                  className="w-full h-2 bg-green-800/50 rounded-lg appearance-none cursor-pointer accent-green-500"
+                />
+                <div className="flex justify-between text-sm text-green-100/60">
+                  <span>0</span>
+                  <span>0.5</span>
+                  <span>1.0</span>
+                </div>
               </div>
             </div>
 

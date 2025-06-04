@@ -65,7 +65,7 @@ export default function RootLayout({
             <div className="flex items-center justify-between h-16">
               {/* Logo/Name */}
               <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
-                Graphite
+              ScoreBounty
               </Link>
 
               {/* Navigation Links */}
@@ -77,10 +77,16 @@ export default function RootLayout({
                   Explore Gigs
                 </Link>
                 <Link 
-                  href="/profile" 
+                  href="/reputation" 
                   className="text-green-400 hover:text-green-300 transition-colors"
                 >
-                  Your Data
+                 Reputation
+                </Link>
+                <Link 
+                  href="/kyc" 
+                  className="text-green-400 hover:text-green-300 transition-colors"
+                >
+                 KYC
                 </Link>
                 <ConnectButton />
               </div>
@@ -102,7 +108,7 @@ export default function RootLayout({
               {/* Company Info */}
               <div className="space-y-4">
                 <h3 className="text-xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
-                  Graphite
+                ScoreBounty
                 </h3>
                 <p className="text-green-100/80 text-sm">
                   Building the future of decentralized work through trust and reputation.
@@ -179,7 +185,7 @@ export default function RootLayout({
             {/* Bottom Bar */}
             <div className="border-t border-green-800/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
               <p className="text-green-100/60 text-sm">
-                © {new Date().getFullYear()} Graphite. All rights reserved.
+                © {new Date().getFullYear()} ScoreBounty. All rights reserved.
               </p>
               <div className="flex gap-6 mt-4 md:mt-0">
                 <Link href="https://twitter.com" className="text-green-100/60 hover:text-green-300 transition-colors">
