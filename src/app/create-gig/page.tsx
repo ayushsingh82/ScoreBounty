@@ -2,6 +2,52 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useContractWrite } from 'wagmi'
+
+// Contract ABI
+const gigABI = [
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_title",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_description",
+        "type": "string"
+      },
+      {
+        "internalType": "string[]",
+        "name": "_gigTypes",
+        "type": "string[]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_bountyPrize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minReputation",
+        "type": "uint256"
+      }
+    ],
+    "name": "createGig",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+] as const;
+
+const GIG_CONTRACT_ADDRESS = "0x0000000000000000000000000000000000001002";
 
 export default function CreateGig() {
   const [formData, setFormData] = useState({
@@ -12,6 +58,9 @@ export default function CreateGig() {
     minReputation: 0.5
   })
   const [newType, setNewType] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const { writeContract } = useContractWrite();
 
   const handleAddType = () => {
     if (newType.trim() && !formData.selectedTypes.includes(newType.trim())) {
@@ -30,10 +79,31 @@ export default function CreateGig() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    // Here you would typically send the data to your backend
+    setIsSubmitting(true)
+
+    try {
+      // Convert reputation score from 0-1 to 0-100 scale
+      const minReputationScore = Math.floor(formData.minReputation * 100)
+      
+      await writeContract({
+        address: GIG_CONTRACT_ADDRESS as `0x${string}`,
+        abi: gigABI,
+        functionName: 'createGig',
+        args: [
+          formData.title,
+          formData.description,
+          formData.selectedTypes,
+          BigInt(Math.floor(parseFloat(formData.bountyPrize) * 1e18)), // Convert to wei
+          BigInt(minReputationScore)
+        ],
+      })
+    } catch (error) {
+      console.error('Error creating gig:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -178,9 +248,12 @@ export default function CreateGig() {
             <div className="flex justify-end">
               <button
                 type="submit"
-                className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+                disabled={isSubmitting}
+                className={`bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-green-500/20 ${
+                  isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-700'
+                }`}
               >
-                Create Gig
+                {isSubmitting ? 'Creating...' : 'Create Gig'}
               </button>
             </div>
           </form>
