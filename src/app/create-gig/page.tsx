@@ -44,6 +44,341 @@ const gigABI = [
     ],
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_gigId",
+        "type": "uint256"
+      }
+    ],
+    "name": "deactivateGig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string[]",
+        "name": "gigTypes",
+        "type": "string[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "bountyPrize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "minReputation",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      }
+    ],
+    "name": "GigCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "GigDeactivated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string[]",
+        "name": "gigTypes",
+        "type": "string[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "bountyPrize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "minReputation",
+        "type": "uint256"
+      }
+    ],
+    "name": "GigUpdated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_gigId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_title",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_description",
+        "type": "string"
+      },
+      {
+        "internalType": "string[]",
+        "name": "_gigTypes",
+        "type": "string[]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_bountyPrize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minReputation",
+        "type": "uint256"
+      }
+    ],
+    "name": "updateGig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllGigs",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "ids",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "string[]",
+        "name": "titles",
+        "type": "string[]"
+      },
+      {
+        "internalType": "string[]",
+        "name": "descriptions",
+        "type": "string[]"
+      },
+      {
+        "internalType": "string[][]",
+        "name": "gigTypes",
+        "type": "string[][]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "bountyPrizes",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "minReputations",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "creators",
+        "type": "address[]"
+      },
+      {
+        "internalType": "bool[]",
+        "name": "isActive",
+        "type": "bool[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "createdAts",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_gigId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getGig",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "string[]",
+        "name": "gigTypes",
+        "type": "string[]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "bountyPrize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minReputation",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isActive",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "createdAt",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getGigCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "gigs",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "bountyPrize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minReputation",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isActive",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "createdAt",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   }
 ] as const;
 
@@ -223,24 +558,24 @@ export default function CreateGig() {
             {/* Minimum Reputation Score */}
             <div>
               <label htmlFor="minReputation" className="block text-green-400 mb-2 font-medium">
-                Minimum Reputation Score: {formData.minReputation.toFixed(2)}
+                Minimum Reputation Score
               </label>
-              <div className="space-y-2">
+              <div className="relative">
                 <input
-                  type="range"
+                  type="number"
                   id="minReputation"
-                  min="0"
-                  max="1"
-                  step="0.01"
                   value={formData.minReputation}
                   onChange={(e) => setFormData(prev => ({ ...prev, minReputation: parseFloat(e.target.value) }))}
-                  className="w-full h-2 bg-green-800/50 rounded-lg appearance-none cursor-pointer accent-green-500"
+                  className="w-full bg-green-950/40 border border-green-800/50 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors"
+                  placeholder="0.00"
+                  step="0.01"
+                  min="0"
+                  max="1"
+                  required
                 />
-                <div className="flex justify-between text-sm text-green-100/60">
-                  <span>0</span>
-                  <span>0.5</span>
-                  <span>1.0</span>
-                </div>
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-green-400">
+                  Score
+                </span>
               </div>
             </div>
 

@@ -126,6 +126,7 @@ const KYCPage = () => {
   const [kycResult, setKycResult] = useState<string>('');
   const [lastRequestIndex, setLastRequestIndex] = useState<bigint>(BigInt(-1));
   const [currentRequest, setCurrentRequest] = useState<KYCRequest | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   // Contract write hook
   const { writeContract } = useContractWrite();
@@ -178,6 +179,8 @@ const KYCPage = () => {
       setKycStatus('success');
       setKycResult(result.approved ? 'Approved' : 'Rejected');
     } catch (error) {
+      console.error('Error in KYC verification:', error);
+      setError('Failed to verify KYC. Please try again.');
       setKycStatus('error');
       setKycResult('Error processing KYC request');
     } finally {
@@ -203,8 +206,19 @@ const KYCPage = () => {
       });
       await processKYCRequest();
     } catch (error) {
+      console.error('Error in KYC verification:', error);
+      setError('Failed to verify KYC. Please try again.');
       setKycStatus('error');
       setKycResult('Error submitting KYC request');
+    }
+  };
+
+  const updateKYCLevel = async () => {
+    try {
+      // ... existing updateKYCLevel logic ...
+    } catch (error) {
+      console.error('Error in KYC level update:', error);
+      setError('Failed to update KYC level. Please try again.');
     }
   };
 

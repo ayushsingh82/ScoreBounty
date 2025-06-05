@@ -159,4 +159,45 @@ contract RegisterGig {
     function getGigCount() external view returns (uint256) {
         return gigCounter;
     }
+
+
+    // Get all gigs (including inactive)
+    function getAllGigs() external view returns (
+        uint256[] memory ids,
+        string[] memory titles,
+        string[] memory descriptions,
+        string[][] memory gigTypes,
+        uint256[] memory bountyPrizes,
+        uint256[] memory minReputations,
+        address[] memory creators,
+        bool[] memory isActive,
+        uint256[] memory createdAts
+    ) {
+        // Initialize arrays with the total number of gigs
+        ids = new uint256[](gigCounter);
+        titles = new string[](gigCounter);
+        descriptions = new string[](gigCounter);
+        gigTypes = new string[][](gigCounter);
+        bountyPrizes = new uint256[](gigCounter);
+        minReputations = new uint256[](gigCounter);
+        creators = new address[](gigCounter);
+        isActive = new bool[](gigCounter);
+        createdAts = new uint256[](gigCounter);
+
+        // Fill arrays with all gig data
+          for (uint256 i = 0; i < gigCounter; i++) {
+            Gig storage gig = gigs[i];
+            ids[i] = gig.id;
+            titles[i] = gig.title;
+            descriptions[i] = gig.description;
+            gigTypes[i] = gig.gigTypes;
+            bountyPrizes[i] = gig.bountyPrize;
+            minReputations[i] = gig.minReputation;
+            creators[i] = gig.creator;
+            isActive[i] = gig.isActive;
+            createdAts[i] = gig.createdAt;
+        }
+
+        return (ids, titles, descriptions, gigTypes, bountyPrizes, minReputations, creators, isActive, createdAts);
+    }
 }

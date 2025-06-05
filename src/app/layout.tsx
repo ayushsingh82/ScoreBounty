@@ -12,7 +12,7 @@ import {
 import { WagmiProvider } from 'wagmi';
 import { Chain } from 'wagmi/chains';
 import {
-  baseSepolia,
+ 
   hardhat,
 } from 'wagmi/chains';
 import {
@@ -43,7 +43,7 @@ const graphitetestnet = {
 const config = getDefaultConfig({
   appName: 'Graphite',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [graphitetestnet , hardhat],
+  chains: [graphitetestnet , hardhat ],
   ssr: true,
 });
 

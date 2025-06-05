@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useContractRead } from 'wagmi';
-import { parseEther } from 'viem';
+import { useContractRead, useContractWrite } from 'wagmi';
 
 // Reputation contract ABI - only including the function we need
 const reputationABI = [
