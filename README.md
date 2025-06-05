@@ -2,6 +2,8 @@
 
 A decentralized platform where bounty hunters can find and claim bounties based on their reputation score. The platform ensures quality through a reputation system and KYC verification through the Graphite Network.
 
+Video and ppt link - https://drive.google.com/drive/u/0/folders/1IxkLNGiFCKlXmf4E07d8INxh9O6JcbHT
+
 ## Features
 
 - **Reputation Score System**: Bounty hunters build reputation through successful bounty completions
